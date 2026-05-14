@@ -17,7 +17,7 @@ export const style = StyleSheet.create( {
 
     input: {
         height: '100%',
-        width: '90%'
+        width: '90%',
     },
     titleInput: {
         marginLeft: 5,
@@ -28,11 +28,11 @@ export const style = StyleSheet.create( {
         width: '100%'
     },
         button: {
-        width: 200,
+        width: 20,
         height: 50,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: themas.colors.primary,
+        backgroundColor: "#black",
         borderRadius: 40,
         shadowColor: "#000",
         shadowOffset: {
