@@ -24,4 +24,23 @@ export const style = StyleSheet.create( {
         color: themas.colors.gray,
         marginTop: 20,
     },
+    icon: {
+        width: '100%'
+    },
+        button: {
+        width: 200,
+        height: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: themas.colors.primary,
+        borderRadius: 40,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 5,
+        },
+        shadowOpacity: 0.34,
+        shadowRadius: 6.27,
+        elevation: 10,
+    },
 });

@@ -12,15 +12,17 @@ import {
 
 import { style } from "./styles";
 import Logo from '../../assets/logo_etec.png';
-import { MaterialIcons, Entypo } from "@expo/vector-icons";
+import { MaterialIcons, Entypo, Octicons } from "@expo/vector-icons";
 import { themas } from "../../global/themes";
 import { Input } from "../../components/input";
+import { Button } from "../../components/button";
 
 
 export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
+    const [showPassword, setShowPassword] = useState(true);
 
     async function getLogin() {
         try {
@@ -46,10 +48,10 @@ export default function Login() {
 
     return (
         <View style={style.container}>
-
-
             <View style={style.boxTop}>
+
                 {/* <Text>Top</Text> */}
+
                 <Image
                     source={Logo}
                     style={style.logo}
@@ -59,52 +61,31 @@ export default function Login() {
             </View>
             <View style={style.boxMid}>
 
-<Input 
-title="ENDEREÇO DE EMAIL"
-/>
+            <Input
+            value={email}
+            onChangeText={setEmail}
+            title="ENDEREÇO DE EMAIL"
+            IconRight={MaterialIcons}
+            iconRightName="email"
 
-                {/* <Text style={style.titleInput}>ENDEREÇO DE E-MAIL</Text>
-                <View style={style.boxInput}>
+            />
 
-                    
+            <Input
+            title="SENHA"
+            IconRight={Octicons}
+            iconRightName={showPassword?"eye-closed": "eye"}
+            secureTextEntry={showPassword}
+            onIconRightPress={()=>setShowPassword(!showPassword)}
+            />
+            
 
-                    <TextInput
-                        style={style.input}
-                        value={email}
-                        onChangeText={setEmail}
-                    />
-
-                    <MaterialIcons
-                        name="email"
-                        size={20}
-                        color={themas.colors.gray}
-                    />
-                </View> */}
-                <Text style={style.titleInput}>SENHA</Text>
-                <View style={style.boxInput}>
-                    <TextInput
-                        style={style.input}
-                        value={password}
-                        onChangeText={setPassword}
-                    />
-
-                    <Entypo
-                        name="eye"
-                        size={20}
-                        color={themas.colors.gray}
-                    />
-                </View>
-
-            </View>
+            </View> 
 
             <View style={style.boxBottom}>
-                <TouchableOpacity style={style.button} onPress={() => getLogin()}>
-                    {loading ? <ActivityIndicator color={'#ffff'} size={'small'} />
-                        :
-                        <Text style={style.textButton}>Entrar</Text>
-                    }
-
-                </TouchableOpacity>
+            <Button
+             text="Entrar"
+             loading={loading} 
+            />
             </View>
             <Text style={style.textBottom}>Não tem conta?
                 <Text style={{ color: themas.colors.primary }}>Crie Agora</Text>
